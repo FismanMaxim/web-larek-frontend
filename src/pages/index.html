@@ -40,7 +40,7 @@
 		</div>
 	</div>
 
-	<div class="modal">
+	<div class="modal" id="card-preview-modal">
 		<div class="modal__container">
 			<button class="modal__close" aria-label="закрыть"></button>
 			<div class="modal__content">
@@ -60,7 +60,7 @@
 		</div>
 	</div>
 
-	<div class="modal">
+	<div class="modal" id="cart-modal">
 		<div class="modal__container">
 			<button class="modal__close" aria-label="закрыть"></button>
 			<div class="modal__content">
@@ -95,7 +95,7 @@
 		</div>
 	</div>
 
-	<div class="modal">
+	<div class="modal" id="payment-modal">
 		<div class="modal__container">
 			<button class="modal__close" aria-label="закрыть"></button>
 			<div class="modal__content">
@@ -104,13 +104,13 @@
 						<div class="order__field">
 							<h2 class="modal__title">Способ оплаты</h2>
 							<div class="order__buttons">
-								<button type="button" class="button button_alt">Онлайн</button>
-								<button type="button" class="button button_alt">При получении</button>
+								<button type="button" class="button button_alt" id="order-online">Онлайн</button>
+								<button type="button" class="button button_alt" id="order-on-delivery">При получении</button>
 							</div>
 						</div>
 						<label class="order__field">
 							<span class="form__label modal__title">Адрес доставки</span>
-							<input class="form__input" type="text" placeholder="Введите адрес" />
+							<input class="form__input" type="text" placeholder="Введите адрес" id="delivery-address"/>
 						</label>
 					</div>
 					<div class="modal__actions">
@@ -121,7 +121,7 @@
 		</div>
 	</div>
 
-	<div class="modal">
+	<div class="modal" id="contact-data-modal">
 		<div class="modal__container">
 			<button class="modal__close" aria-label="закрыть"></button>
 			<div class="modal__content">
@@ -129,11 +129,11 @@
 					<div class="order">
 						<label class="order__field">
 							<span class="form__label modal__title">Email</span>
-							<input class="form__input" type="text" placeholder="Введите Email" />
+							<input class="form__input" type="text" id="order-email" placeholder="Введите Email" />
 						</label>
 						<label class="order__field">
 							<span class="form__label modal__title">Телефон</span>
-							<input class="form__input" type="text" placeholder="+7 (" />
+							<input class="form__input" type="text" id="order-phone" placeholder="+7 (" />
 						</label>
 					</div>
 					<div class="modal__actions">
@@ -144,7 +144,7 @@
 		</div>
 	</div>
 
-	<div class="modal">
+	<div class="modal" id="order-completed-modal">
 		<div class="modal__container">
 			<button class="modal__close" aria-label="закрыть"></button>
 			<div class="modal__content">

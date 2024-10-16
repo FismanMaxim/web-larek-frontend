@@ -9,7 +9,9 @@ type EmitterEvent = {
 
 export interface IEvents {
     on<T extends object>(event: EventName, callback: (data: T) => void): void;
+
     emit<T extends object>(event: string, data?: T): void;
+
     trigger<T extends object>(event: string, context?: Partial<T>): (data: T) => void;
 }
 
@@ -21,14 +23,24 @@ export interface IEvents {
 export class EventEmitter implements IEvents {
     _events: Map<EventName, Set<Subscriber>>;
 
-    constructor() {
+    constructor();
+    constructor(events: Map<EventName, Subscriber>);
+
+    // Single implementation
+    constructor(events?: Map<EventName, Subscriber>) {
         this._events = new Map<EventName, Set<Subscriber>>();
+
+        if (events) {
+            events.forEach((subscriber, eventName) =>
+              this.on(eventName, subscriber)
+            );
+        }
     }
 
     /**
      * Установить обработчик на событие
      */
-    on<T extends object>(eventName: EventName, callback: (event: T) => void) {
+    on(eventName: EventName, callback: Subscriber) {
         if (!this._events.has(eventName)) {
             this._events.set(eventName, new Set<Subscriber>());
         }
@@ -50,7 +62,7 @@ export class EventEmitter implements IEvents {
     /**
      * Инициировать событие с данными
      */
-    emit<T extends object>(eventName: string, data?: T) {
+    emit(eventName: string, data?: object) {
         this._events.forEach((subscribers, name) => {
             if (name instanceof RegExp && name.test(eventName) || name === eventName) {
                 subscribers.forEach(callback => callback(data));
@@ -62,7 +74,7 @@ export class EventEmitter implements IEvents {
      * Слушать все события
      */
     onAll(callback: (event: EmitterEvent) => void) {
-        this.on("*", callback);
+        this.on('*', callback);
     }
 
     /**
@@ -79,7 +91,7 @@ export class EventEmitter implements IEvents {
         return (event: object = {}) => {
             this.emit(eventName, {
                 ...(event || {}),
-                ...(context || {})
+                ...(context || {}),
             });
         };
     }
