@@ -95,7 +95,7 @@
 		</div>
 	</div>
 
-	<div class="modal" id="payment-modal">
+	<div class="modal" id="address-payment-modal">
 		<div class="modal__container">
 			<button class="modal__close" aria-label="закрыть"></button>
 			<div class="modal__content">
@@ -104,13 +104,13 @@
 						<div class="order__field">
 							<h2 class="modal__title">Способ оплаты</h2>
 							<div class="order__buttons">
-								<button type="button" class="button button_alt" id="order-online">Онлайн</button>
-								<button type="button" class="button button_alt" id="order-on-delivery">При получении</button>
+								<button type="button" class="button button_alt">Онлайн</button>
+								<button type="button" class="button button_alt">При получении</button>
 							</div>
 						</div>
 						<label class="order__field">
 							<span class="form__label modal__title">Адрес доставки</span>
-							<input class="form__input" type="text" placeholder="Введите адрес" id="delivery-address"/>
+							<input class="form__input" type="text" placeholder="Введите адрес" />
 						</label>
 					</div>
 					<div class="modal__actions">
@@ -121,7 +121,7 @@
 		</div>
 	</div>
 
-	<div class="modal" id="contact-data-modal">
+	<div class="modal" id="email-phone-modal">
 		<div class="modal__container">
 			<button class="modal__close" aria-label="закрыть"></button>
 			<div class="modal__content">
@@ -129,11 +129,11 @@
 					<div class="order">
 						<label class="order__field">
 							<span class="form__label modal__title">Email</span>
-							<input class="form__input" type="text" id="order-email" placeholder="Введите Email" />
+							<input class="form__input" type="text" placeholder="Введите Email" />
 						</label>
 						<label class="order__field">
 							<span class="form__label modal__title">Телефон</span>
-							<input class="form__input" type="text" id="order-phone" placeholder="+7 (" />
+							<input class="form__input" type="text" placeholder="+7 (" />
 						</label>
 					</div>
 					<div class="modal__actions">
@@ -165,15 +165,6 @@
 		</div>
 	</template>
 
-	<template id="card-catalog">
-		<button class="gallery__item card">
-			<span class="card__category card__category_soft">софт-скил</span>
-			<h2 class="card__title">+1 час в сутках</h2>
-			<img class="card__image" src="<%=require('../images/Subtract.svg')%>" alt="" />
-			<span class="card__price">750 синапсов</span>
-		</button>
-	</template>
-
 	<template id="card-preview">
 		<div class="card card_full">
 			<img class="card__image" src="<%=require('../images/Subtract.svg')%>" alt="" />
@@ -187,6 +178,15 @@
 				</div>
 			</div>
 		</div>
+	</template>
+
+	<template id="card-catalog">
+		<button class="gallery__item card">
+			<span class="card__category card__category_soft">софт-скил</span>
+			<h2 class="card__title">+1 час в сутках</h2>
+			<img class="card__image" src="<%=require('../images/Subtract.svg')%>" alt="" />
+			<span class="card__price">750 синапсов</span>
+		</button>
 	</template>
 
 	<template id="card-basket">
