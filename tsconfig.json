@@ -3,10 +3,10 @@
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "module": "es6",
-    "target": "es2017",
+    "target": "es6",
     "allowJs": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
   },
-  //"include": ["src/index.ts", "src/types/*.d.ts"]
+  "include": ["src/index.ts", "src/**/*.ts"]
 }

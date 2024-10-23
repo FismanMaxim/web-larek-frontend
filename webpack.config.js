@@ -24,7 +24,13 @@ const config = {
     open: true,
     host: "localhost",
     watchFiles: ["src/pages/*.html"],
-    hot: true
+    hot: true,
+    client: {
+      overlay: {
+        warnings: false, // Disable warning overlay in browser
+        errors: true      // Only show errors in the browser overlay
+      },
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -54,7 +60,8 @@ const config = {
           options: {
             sourceMap: true,
             sassOptions: {
-              includePaths: ["src/scss"]
+              includePaths: ["src/scss"],
+              warnRuleAsError: false // Suppress sass warnings
             }
           }
         }],
@@ -83,7 +90,13 @@ const config = {
         keep_fnames: true
       }
     })]
-  }
+  },
+  stats: {
+    warnings: false // Suppress warnings from terminal output
+  },
+  ignoreWarnings: [
+    (warning) => warning.message.includes('Deprecation The legacy JS API is deprecated')
+  ]
 };
 
 module.exports = () => {
